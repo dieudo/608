@@ -1,0 +1,69 @@
+<!doctype html>
+<title> Douedraogo_Assgn5_608</title>
+<script type="text/javascript">
+function reverse() {
+				w = document.dieudonne.strg.value;
+				rw = w.split("").reverse().join("");
+				document.dieudonne.rstrg.value = rw;
+			}	
+			
+			
+function multiple() {
+				nmbr = document.dieudonne.nmbr.value;
+				if (!isNaN(nmbr)){
+					rw = "<h3>20 Multiples of " + nmbr + " in 5x4 order:</h3><p />";
+					rw = rw + "<table><tr><td align='right'>";
+					for (var i=1; i<=20; i++) {
+						rw = rw + nmbr * i + "</td><td>&nbsp;</td><td align='right'>";
+						if (i%4 == 0)
+							rw = rw + "</td></tr><tr><td align='right'>";
+					}
+					rw = rw + "</td></tr></table>";
+				}
+				else {
+					rw = "<b>Enter a valid number</b>";
+				}
+				document.getElementById("target").innerHTML = rw;
+			}
+			
+			function checkKey(evt) { 
+			  var evt = (evt) ? evt : ((event) ? event : null); 
+			  var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null); 
+			  if ((evt.keyCode == 13) && (node.type=="text"))  {return false;} 
+			} 
+			document.onkeypress = checkKey; 
+			
+</script>
+	</head>
+	<body>
+		<hr>
+		<h2>
+		<font color="blue">
+	    <br />If you enter a word(s) in the first box ,it will reverse the letters of the word ,press enter at the end.<p />
+		<br />If you enter a number in the last box ,it will display the 20 first multiples in a 5  by  4 matrix  form.</font></h2>
+		<hr>
+		<form name="dieudonne">
+			<table>
+				<tr> 
+					<td>Enter a word or words:</td> 
+					<td><input type="text" name="strg"></td>
+					<td><a href="#" onclick="javascript:reverse();">
+						Press Enter</a></td>
+				</tr><tr>
+					<td>your word(s)reversed :</td>
+					<td colspan="2"><input type="text" name="rstrg" disabled></td>
+				</tr><tr>
+					<td colspan="3">&nbsp;<br></td>
+				</tr><tr>
+					<td>Enter a valid Number :</td>
+					<td><input name="nmbr" type="text"></td>
+					<td><a href="#" onclick="javascript:multiple();">
+						Press Enter</a></td>	
+				</h2>		
+				</tr>
+			</table>
+			<p />
+			<div id='target'></div>
+		</form>
+	</body>
+</html>	
