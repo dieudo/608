@@ -3,6 +3,7 @@ library(dplyr)
 library(ggplot2)
 library(plyr)
 data <- read.csv("~/turnstile_data_master_with_weather.csv")
+# I am interested on the entries at 9 am
 data1<- filter(data, Hour==9) 
 shinyUI(pageWithSidebar(
   
